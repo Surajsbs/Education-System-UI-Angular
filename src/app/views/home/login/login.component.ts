@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
     validateuser (data) {
         if(data.status === 200) {
             if((data.result.token !== 'NULL' && data.result.token !== 'NULL') || (data.result.username !== '' && data.result.username !== '')) {
-                sessionStorage.setItem('currentUser', JSON.stringify(data.result));
+                localStorage.setItem('currentUser', JSON.stringify(data.result));
                 this.router.navigate(['/dashboard']);
             } else {
                 this.error = data.message;

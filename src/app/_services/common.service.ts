@@ -54,4 +54,10 @@ export class CommonService {
         this.url = environment.apiUrl + environment.task.getUsersByClassAndAssignment + '?assignmentId=' + assignmentId + '&classId=' + classId;
         return this.http.get<object>(this.url, { observe: 'body' });
     }
+
+    async profile(currentUser) {
+        this.url = environment.apiUrl + environment.common.profile;
+        let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        return this.http.post<object>(this.url, JSON.stringify(currentUser), { headers, observe: 'body' });
+    }
 }

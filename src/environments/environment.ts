@@ -74,5 +74,8 @@ export const environment = {
             getCreatedNotifications: '/notification/getCreatedNotifications',
             // getSuspendedNotifications: '/notification/getSuspendedNotifications'
         }
+    },
+    common: {
+        profile: '/common/profile'
     }
 };

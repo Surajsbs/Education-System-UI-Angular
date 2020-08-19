@@ -17,7 +17,7 @@ export class AuthenticationService {
     }
 
     refresh() {
-        this.currentUserSubject = new BehaviorSubject<UserModel>(JSON.parse(sessionStorage.getItem('currentUser')));
+        this.currentUserSubject = new BehaviorSubject<UserModel>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
@@ -38,7 +38,7 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        sessionStorage.removeItem('currentUser');
+        localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
 }
