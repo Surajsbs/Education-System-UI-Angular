@@ -1,0 +1,196 @@
+<div class="animated fadeIn container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card border-dark">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i>Create Assignment
+                <div class="card-header-actions">
+                    <a href="#" [routerLink]="['/dashboard/assignment/viewSubmission']">
+                        <small className="text-muted">View Submission</small>
+                    </a>
+                </div>
+            </div>
+            <form [formGroup]="createASForm" (ngSubmit)="onSubmit()">
+            <div class="card-body">
+                
+                    <div class="row">
+                      <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Select Class Name</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <select class="form-control form-control-sm" formControlName="classId" 
+                                [ngClass]="{ 'is-invalid': submitted && f.classId.errors }" (change)="fetchUsersAndTasks($event.target.value)">
+                                <option value="">Choose Class Name</option>
+                                <option *ngFor="let lClass of classes; let i = index" [value]="classes[i].classId">
+                                    {{classes[i].className}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Select Assignment</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="form-group">
+                                    <select class="form-control form-control-sm" formControlName="assignmentId" [ngClass]="{ 'is-invalid': submitted && f.assignmentId.errors }">
+                                        <option value="" selected>Choose Assignment</option>
+                                        <option *ngFor="let a of assign" [value]="a.assignmentId">
+                                            {{a.title}}
+                                        </option>
+                                    </select>
+                              </div>
+                          </div>
+                                       
+                </div>
+                    <div class="row">   
+                      <div class="col-md-4 col-md-4">
+                            <small class="form-text text-muted"><b>Select User Name</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <a class="btn btn-outline-dark btn-sm active" role="button" aria-pressed="true" (click)="openModelToSelectUsers(usersModel)">Click to Select Users</a>
+                            <!-- <button type="button"  class="form-control form-control-sm" class="btn btn-outline-dark" (click)="openModelToSelectUsers(usersModel)" >Click to Select Users</button> -->
+                            <!-- <input type="text" class="form-control form-control-sm" value="" placeholder="Click to Select Users" readonly /> -->
+                        </div>
+                        <div class="col-md-8 col-md-8">
+                            <small class="form-text text-muted"><b>Selected Users</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <textarea class="form-control form-control-sm" [ngClass]="{ 'is-invalid': submitted && f.selectedUsers.errors }" formControlName="selectedUsers" readonly> </textarea>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Select Submission Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="input-group mb-3">
+                                <input type="text" formControlName="submissionDate" class="form-control form-control-sm" [matDatepicker]="ASSubmissionDatePicker" placeholder="Select Submission Date" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.submissionDate.errors }" />
+                                <mat-datepicker-toggle matSuffix [for]="ASSubmissionDatePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #ASSubmissionDatePicker></mat-datepicker>
+                            </div>
+                        </div>
+                      
+                        <div class="col-sm-6 col-md-6">
+                          <small class="form-text text-muted"><b>Select Status</b><i class="fa fa-asterisk text-danger"></i></small>
+                          <div class="form-group">
+                                <select class="form-control form-control-sm" formControlName="activeStatus" [ngClass]="{ 'is-invalid': submitted && f.activeStatus.errors }">
+                                    <option value="" selected>Choose Status</option>
+                                    <option *ngFor="let status of activeStatus" [value]="status">
+                                      {{status}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div> 
+                       
+                      </div>
+                
+                      <div class="row">
+                      <div class="col-sm-6 col-md-6">
+                        <small class="form-text text-muted"><b>Enter Result</b><i class="fa fa-asterisk text-danger"></i></small>
+                        <div class="input-group mb-3">
+                            <textarea type="text" formControlName="result" class="form-control form-control-sm" placeholder="Assignment Submission Result" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.result.errors }" rows="3"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-6">
+                          <small class="form-text text-muted"><b>Enter Remark</b><i class="fa fa-asterisk text-danger"></i></small>
+                          <div class="input-group mb-3">
+                              <textarea type="text" formControlName="remark" class="form-control form-control-sm" placeholder="Assignment Submission Remark" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.remark.errors }" rows="3"></textarea>
+                          </div>
+                        </div>
+                    </div>
+               
+            </div>
+          <div class="card-footer text-right">
+                <button class="btn btn-outline-success btn-sm" [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Create</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="onReset()">Reset</button>
+          </div>
+        </form>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>contextual variations</small>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-danger">Danger</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-info">Info</span>
+            <span class="badge badge-light">Light</span>
+            <span class="badge badge-dark">Dark</span>
+          </div>
+        </div>
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>pill badges</small>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-pill badge-primary">Primary</span>
+            <span class="badge badge-pill badge-secondary">Secondary</span>
+            <span class="badge badge-pill badge-success">Success</span>
+            <span class="badge badge-pill badge-danger">Danger</span>
+            <span class="badge badge-pill badge-warning">Warning</span>
+            <span class="badge badge-pill badge-info">Info</span>
+            <span class="badge badge-pill badge-light">Light</span>
+            <span class="badge badge-pill badge-dark">Dark</span>
+          </div>
+        </div>
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>links</small>
+          </div>
+          <div class="card-body">
+            <a href="#" class="badge badge-primary">Primary</a>
+            <a href="#" class="badge badge-secondary">Secondary</a>
+            <a href="#" class="badge badge-success">Success</a>
+            <a href="#" class="badge badge-danger">Danger</a>
+            <a href="#" class="badge badge-warning">Warning</a>
+            <a href="#" class="badge badge-info">Info</a>
+            <a href="#" class="badge badge-light">Light</a>
+            <a href="#" class="badge badge-dark">Dark</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #usersModel let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="editProfileLabel">Choose Users</h5>
+        <mat-list-item>
+            <mat-checkbox
+            [checked]="allComplete"
+            (change)="setAllUsers($event.checked)"
+            ><b>Select All</b></mat-checkbox>
+          </mat-list-item>
+    </div>
+  
+    <div class="modal-body">
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let user of users; let i = index">
+                    <mat-checkbox
+                        [value]="user.userId"
+                        [disabled]="user.disabled" 
+                        [labelPosition]="user.labelPosition"
+                        [(ngModel)]="user.selected">
+                            {{ user.userName }}
+                    </mat-checkbox>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </div>
+
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="input-group mb-3">
+                    <button class="btn btn-block btn-success" ngbAutofocus (click)="saveCheckedUsers($event.checked)">Save</button>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="input-group mb-3">
+                    <button type="button" ngbAutofocus class="btn btn-block btn-primary" (click)="modal.close('Close click')">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </ng-template>

@@ -1,0 +1,337 @@
+
+    <div class="container-fluid">
+      <div class="card border-dark">
+          <div class="card-header">
+              <div class="d-table-cell w-100">
+                  <input class="form-control form-control-sm" #filter placeholder="Search" />
+              </div>
+              <div class="d-table-cell align-middle">
+                  <button mat-icon-button (click)="loadData()" aria-placeholder="Refresh">
+                      <mat-icon>refresh</mat-icon>
+                  </button>
+              </div>
+          </div>
+          <mat-table #table [dataSource]="dataSource" matSort class="">
+  
+              <ng-container matColumnDef="Title" style="overscroll-behavior-block: initial;">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <strong><b>Title</b></strong>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="Description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <strong><b>Description</b></strong>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.description}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="StartDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <strong><b>Start Date</b></strong>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.startDate}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="EndDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <strong><b>End Date</b></strong>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.endDate}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="CreationDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <strong><b>Creation Date</b></strong>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{row.creationDate}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="View">
+                <mat-header-cell *matHeaderCellDef>
+                  <strong><b>View</b></strong>
+                </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="accent" (click)="viewNote(viewNoteModel, row)">
+                        <i class="fa fa-eye" aria-hidden="true" style="padding-right: 0%; padding-left: 0%;"></i>
+                    </button>
+                  </mat-cell>
+              </ng-container>
+  
+  
+              <ng-container matColumnDef="Edit">
+                <mat-header-cell *matHeaderCellDef>
+                  <strong><b>Edit</b></strong>
+                </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                      <button mat-icon-button color="accent" (click)="editNote(editNoteModel, row)">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true" style="padding-right: 0%; padding-left: 0%;"></i>
+                      </button>
+                  </mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="Delete">
+                <mat-header-cell *matHeaderCellDef>
+                  <strong><b>Delete</b></strong>
+                </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                      <button mat-icon-button color="accent" (click)="deleteNote(deleteNoteModel, row)">
+                        <i class="fa fa-trash-o fa-lg" style="padding-right: 0%; padding-left: 0%;"></i>
+                      </button>
+                  </mat-cell>
+              </ng-container>
+  
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+  
+          <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+              <h2>No results</h2>
+          </div>
+  
+        
+  
+          <div class="d-flex justify-content-between p-2">
+            <mat-paginator showFirstLastButtons class="footer" [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50, 100]">
+            </mat-paginator>
+          </div>
+      </div>
+    </div>
+  
+  
+  
+  <ng-template #viewNoteModel let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">View Note</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  
+    <div class="modal-body">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>Title</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{note.title}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>Description</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{note.description}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>Start Date</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{note.startDate}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>End Date</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{note.endDate}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>Creation Date</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{note.creationDate}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>Class Name</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{className}}</label>
+                        </div>
+                    </div>
+                </tr>
+                
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label>Url</label>
+                        </div>
+                        <div class="col-sm-7 col-md-7">
+                            <label>{{note.url}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-5 col-md-5">
+                            <label for="inputsm">Note Type</label>
+                        </div>
+                        <div class="col-sm-5 col-md-5">
+                            <label>{{note.type}}</label>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                  <div class="row">
+                      <div class="col-sm-5 col-md-5">
+                          <label for="inputsm">Note Active</label>
+                      </div>
+                      <div class="col-sm-5 col-md-5">
+                          <label>{{note.active}}</label>
+                      </div>
+                  </div>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="modal-footer text-right">
+        <button type="button" ngbAutofocus class="btn btn-outline-danger btn-sm" (click)="modal.close('Close click')">Close</button>
+    </div> -->
+  </ng-template>
+
+  
+   <ng-template #editNoteModel let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Update Note</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  
+    <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <small class="form-text text-muted"><b>Title</b><i class="fa fa-asterisk text-danger"></i></small>
+                    <div class="input-group mb-3">
+                        <input [(ngModel)]="note.title" name="title" class="form-control form-control-sm" placeholder="Title" required>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <small class="form-text text-muted"><b>Description</b><i class="fa fa-asterisk text-danger"></i></small>
+                    <div class="input-group mb-3">
+                        <input [(ngModel)]="note.description" name="description" maxlength="10" minlength="10" class="form-control form-control-sm" placeholder="Description" autocomplete="" required>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <small class="form-text text-muted"><b>Select Class Name</b><i class="fa fa-asterisk text-danger"></i></small>
+                  <div class="form-group">
+                      <select class="form-control form-control-sm" name="classId" [(ngModel)]="note.classId" required (change)="onChangeFetchClass($event.target.value)">
+                          <option value="">Choose Class Name</option>
+                          <option *ngFor="let lClass of classes; let i = index" [value]="classes[i].classId">
+                              {{classes[i].className}}
+                            </option>
+                      </select>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <small class="form-text text-muted"><b>Active Status</b><i class="fa fa-asterisk text-danger"></i></small>
+                    <div class="form-group">
+                        <select class="form-control form-control-sm" [(ngModel)]="note.active" name="active" required>
+                            <option value="">Choose Active Status</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <small class="form-text text-muted"><b>Note Type</b><i class="fa fa-asterisk text-danger"></i></small>
+                  <div class="form-group">
+                      <select class="form-control form-control-sm" [(ngModel)]="note.type" name="type" required>
+                          <option value="">Choose Note Type</option>
+                          <option *ngFor="let n of types; let i = index" [value]="n">{{n}}</option>
+                      </select>
+                  </div>
+              </div>              
+                <div class="col-sm-4 col-md-4">
+                    <small class="form-text text-muted"><b>Enter Url</b></small>
+                    <div class="input-group mb-3">
+                        <input [(ngModel)]="note.url" name="url" class="form-control form-control-sm" placeholder="Url" autocomplete=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                  <small class="form-text text-muted"><b>Enter Start Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                  <div class="input-group mb-3">
+                      <input [(ngModel)]="note.startDate" name="startDate" class="form-control form-control-sm" [matDatepicker]="stpicker" placeholder="Start Date" autocomplete="" required readonly >
+                      <mat-datepicker-toggle matSuffix [for]="stpicker"></mat-datepicker-toggle>
+                      <mat-datepicker #stpicker></mat-datepicker>
+                  </div>                  
+              </div>
+              <div class="col-sm-4 col-md-4">
+                    <small class="form-text text-muted"><b>Enter End Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                    <div class="input-group mb-3">
+                        <input [(ngModel)]="note.endDate" name="endDate" class="form-control form-control-sm" [matDatepicker]="edpicker" placeholder="End Date" autocomplete="" required readonly >
+                        <mat-datepicker-toggle matSuffix [for]="edpicker"></mat-datepicker-toggle>
+                        <mat-datepicker #edpicker></mat-datepicker>
+                    </div>                  
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <small class="form-text text-muted"><b>Enter Creation Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                  <div class="input-group mb-3">
+                      <input [(ngModel)]="note.creationDate" name="creationDate" class="form-control form-control-sm" [matDatepicker]="ctdpicker" placeholder="Creation Date" autocomplete="" required readonly >
+                      <mat-datepicker-toggle matSuffix [for]="ctdpicker"></mat-datepicker-toggle>
+                      <mat-datepicker #ctdpicker></mat-datepicker>
+                  </div>                  
+              </div>
+            </div>
+            
+        
+    </div>
+    <div class="modal-footer text-right">
+        <!-- <button type="button" class="btn btn-outline-danger btn-sm" (click)="modal.close('Close click')">Close</button> -->
+        <button class="btn btn-outline-success btn-sm" (click)="submit(note)">Update</button>
+      </div>
+  </ng-template>
+
+
+  
+  <ng-template #deleteNoteModel let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="editProfileLabel">Delete Note</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  
+    <div class="modal-body">
+        <div class="row">  
+            <div class="col-sm-6 col-md-6">
+                  <label for="inputsm">Title</label>
+              </div>
+              <div class="col-sm-5 col-md-5">
+                  <label for="inputlg">{{note.title}}</label>
+              </div>
+          </div> 
+          
+    </div>
+    <div class="modal-footer text-right">
+        <!-- <button type="button" class="btn btn-outline-primary btn-sm" (click)="modal.close('Close click')">Cancel</button> -->
+        <button class="btn btn-outline-danger btn-sm" (click)="confirmDelete(note)">Delete</button>
+      </div>
+  </ng-template>
+  

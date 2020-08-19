@@ -1,0 +1,113 @@
+<div class="animated fadeIn container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card border-dark">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i>Create Class
+                  <!-- <div class="card-header-actions">
+                      <a href="#" [routerLink]="['/dashboard/notes/list']">
+                          <small className="text-muted">View Notes</small>
+                      </a>
+                  </div> -->
+            </div>
+            <form [formGroup]="createMiscellaneousForm" (ngSubmit)="onSubmit()">
+              <div class="card-body">
+              <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <small class="form-text text-muted"><b>Enter Class Name</b><i class="fa fa-asterisk text-danger"></i></small>
+                        <div class="input-group mb-3">
+                            <input type="text" formControlName="className" class="form-control form-control-sm" placeholder="Class Name" [ngClass]="{ 'is-invalid': submitted && f.className.errors }" />
+                            <div *ngIf="submitted && f.className.errors" class="invalid-feedback">
+                                <div *ngIf="f.className.errors.required">Class name is require</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <small class="form-text text-muted"><b>Enter Class Fee</b><i class="fa fa-asterisk text-danger"></i></small>
+                        <div class="input-group mb-3">
+                            <input formControlName="classFee" type="text" class="form-control form-control-sm" placeholder="Class Fee" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.classFee.errors }" />
+                            <div *ngIf="submitted && f.classFee.errors" class="invalid-feedback">
+                                <div *ngIf="f.classFee.errors.required">Class fee amount is require</div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <small class="form-text text-muted"><b>Select Active Status</b><i class="fa fa-asterisk text-danger"></i></small>
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" formControlName="activeStatus" [ngClass]="{ 'is-invalid': submitted && f.activeStatus.errors }">
+                                <option value="">Choose Active Status</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                            <div *ngIf="submitted && f.activeStatus.errors" class="invalid-feedback">
+                                <div *ngIf="f.activeStatus.errors.required">Class active status is require</div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            
+          </div>
+          <div class="card-footer text-right">
+            <button class="btn btn-outline-success btn-sm" [disabled]="loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Create</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="onReset()">Reset</button>
+          </div>
+        </form>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>contextual variations</small>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-danger">Danger</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-info">Info</span>
+            <span class="badge badge-light">Light</span>
+            <span class="badge badge-dark">Dark</span>
+          </div>
+        </div>
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>pill badges</small>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-pill badge-primary">Primary</span>
+            <span class="badge badge-pill badge-secondary">Secondary</span>
+            <span class="badge badge-pill badge-success">Success</span>
+            <span class="badge badge-pill badge-danger">Danger</span>
+            <span class="badge badge-pill badge-warning">Warning</span>
+            <span class="badge badge-pill badge-info">Info</span>
+            <span class="badge badge-pill badge-light">Light</span>
+            <span class="badge badge-pill badge-dark">Dark</span>
+          </div>
+        </div>
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>links</small>
+          </div>
+          <div class="card-body">
+            <a href="#" class="badge badge-primary">Primary</a>
+            <a href="#" class="badge badge-secondary">Secondary</a>
+            <a href="#" class="badge badge-success">Success</a>
+            <a href="#" class="badge badge-danger">Danger</a>
+            <a href="#" class="badge badge-warning">Warning</a>
+            <a href="#" class="badge badge-info">Info</a>
+            <a href="#" class="badge badge-light">Light</a>
+            <a href="#" class="badge badge-dark">Dark</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

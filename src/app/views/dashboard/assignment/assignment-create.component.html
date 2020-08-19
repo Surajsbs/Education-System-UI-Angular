@@ -1,0 +1,176 @@
+<div class="animated fadeIn container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card border-dark">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i>Create Assignment
+                  <div class="card-header-actions">
+                      <a href="#" [routerLink]="['/dashboard/assignment/view']">
+                          <small className="text-muted">View Assignments</small>
+                      </a>
+                  </div>
+              </div>
+              <form [formGroup]="assignmentCreateForm" (ngSubmit)="onSubmit()">
+            <div class="card-body">
+                
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Enter Title</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="input-group mb-3">
+                                <input type="text" formControlName="title" class="form-control form-control-sm" placeholder="Title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+                                <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                    <div *ngIf="f.title.errors.required">Title is require</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Enter Description</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="input-group mb-3">
+                                <input formControlName="description" type="text" class="form-control form-control-sm" placeholder="Description" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                                <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                    <div *ngIf="f.description.errors.required">Description is require</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Select Class Name</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="form-group">
+                                <select class="form-control form-control-sm" formControlName="classId" [ngClass]="{ 'is-invalid': submitted && f.classId.errors }">
+                                    <option value="">Choose Class Name</option>
+                                    <option *ngFor="let className of classes; let i = index;" [value]="classes[i].classId">{{classes[i].className}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.classId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.classId.errors.required">Class name is require</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Select Active Status</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="form-group">
+                                <select class="form-control form-control-sm" formControlName="activeStatus" [ngClass]="{ 'is-invalid': submitted && f.activeStatus.errors }">
+                                    <option value="">Choose Active Status</option>
+                                    <option *ngFor="let status of activeStatus">{{status}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.activeStatus.errors" class="invalid-feedback">
+                                    <div *ngIf="f.activeStatus.errors.required">Status is require</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <small class="form-text text-muted"><b>Select Start Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="input-group mb-3">
+                                <input type="text" formControlName="startDate" class="form-control form-control-sm" [matDatepicker]="AssignmentStartDatePicker" placeholder="Assignment Start Date" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" readonly>
+                                <mat-datepicker-toggle matSuffix [for]="AssignmentStartDatePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #AssignmentStartDatePicker></mat-datepicker>
+                                <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                                    <div *ngIf="f.startDate.errors.required">Start date is require</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                          <small class="form-text text-muted"><b>Select Submission Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                          <div class="input-group mb-3">
+                              <input type="text" formControlName="submissionDate" class="form-control form-control-sm" [matDatepicker]="AssignmentEndDatePicker" placeholder="Assignment End Date" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.submissionDate.errors }" />
+                              <mat-datepicker-toggle matSuffix [for]="AssignmentEndDatePicker"></mat-datepicker-toggle>
+                              <mat-datepicker #AssignmentEndDatePicker></mat-datepicker>
+                              <div *ngIf="submitted && f.submissionDate.errors" class="invalid-feedback">
+                                <div *ngIf="f.submissionDate.errors.required">Submission date is require</div>
+                            </div>
+                          </div>
+                         
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <small class="form-text text-muted"><b>Enter URL</b><i class="fa fa-asterisk text-danger"></i></small>
+                            <div class="input-group mb-3">
+                                <input type="text" formControlName="url" class="form-control form-control-sm" placeholder="Assignment Url" autocomplete="" [ngClass]="{ 'is-invalid': submitted && f.url.errors }" />
+                                <div *ngIf="submitted && f.url.errors" class="invalid-feedback">
+                                    <div *ngIf="f.url.errors.required">Url is require</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="input-group mb-3">
+                                <!-- <button class="btn btn-block btn-success" [disabled]="loading" [disabled]="!registerForm.valid"> -->
+                                    
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="input-group mb-3">
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+          <div class="card-footer text-right">
+              <button class="btn btn-outline-success btn-sm" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Create</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" (click)="onReset()">Reset</button>
+          </div>
+        </form>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>contextual variations</small>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-danger">Danger</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-info">Info</span>
+            <span class="badge badge-light">Light</span>
+            <span class="badge badge-dark">Dark</span>
+          </div>
+        </div>
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>pill badges</small>
+          </div>
+          <div class="card-body">
+            <span class="badge badge-pill badge-primary">Primary</span>
+            <span class="badge badge-pill badge-secondary">Secondary</span>
+            <span class="badge badge-pill badge-success">Success</span>
+            <span class="badge badge-pill badge-danger">Danger</span>
+            <span class="badge badge-pill badge-warning">Warning</span>
+            <span class="badge badge-pill badge-info">Info</span>
+            <span class="badge badge-pill badge-light">Light</span>
+            <span class="badge badge-pill badge-dark">Dark</span>
+          </div>
+        </div>
+        <div class="card border-dark">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Bootstrap Badges
+            <small>links</small>
+          </div>
+          <div class="card-body">
+            <a href="#" class="badge badge-primary">Primary</a>
+            <a href="#" class="badge badge-secondary">Secondary</a>
+            <a href="#" class="badge badge-success">Success</a>
+            <a href="#" class="badge badge-danger">Danger</a>
+            <a href="#" class="badge badge-warning">Warning</a>
+            <a href="#" class="badge badge-info">Info</a>
+            <a href="#" class="badge badge-light">Light</a>
+            <a href="#" class="badge badge-dark">Dark</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

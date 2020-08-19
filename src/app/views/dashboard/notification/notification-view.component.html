@@ -1,0 +1,275 @@
+
+  <div class="container-fluid">
+    <div class="card border-dark">
+        <div class="card-header">
+            <div class="d-table-cell w-100">
+                <input class="form-control form-control-sm" #filter placeholder="Search" />
+            </div>
+            <div class="d-table-cell align-middle">
+                <button mat-icon-button (click)="loadData()" aria-placeholder="Refresh">
+                    <mat-icon>refresh</mat-icon>
+                </button>
+            </div>
+        </div>
+        <mat-table #table [dataSource]="dataSource" matSort class="">
+
+            <ng-container matColumnDef="Title" style="overscroll-behavior-block: initial;">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <strong><b>Title</b></strong>
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Class Name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <strong><b>Class Name</b></strong>
+              </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.className}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Start Date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <strong><b>Start Date</b></strong>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.startDate}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="End Date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  <strong><b>End Date</b></strong>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.endDate}}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="View">
+              <mat-header-cell *matHeaderCellDef>
+                <strong><b>View</b></strong>
+              </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button mat-icon-button color="accent" (click)="viewNotification(viewNotificationModel, row)">
+                      <i class="fa fa-eye" aria-hidden="true" style="padding-right: 0%; padding-left: 0%;"></i>
+                  </button>
+                </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="Edit">
+              <mat-header-cell *matHeaderCellDef>
+                <strong><b>Edit</b></strong>
+              </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="accent" (click)="editNotification(editNotificationModel, row)">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true" style="padding-right: 0%; padding-left: 0%;"></i>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Delete">
+              <mat-header-cell *matHeaderCellDef>
+                <strong><b>Delete</b></strong>
+              </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="accent" (click)="deleteNotification(deleteNotificationModel, row)">
+                      <i class="fa fa-trash-o fa-lg" style="padding-right: 0%; padding-left: 0%;"></i>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+            <h2>No results</h2>
+        </div>
+
+      
+
+        <div class="d-flex justify-content-between p-2">
+          <mat-paginator showFirstLastButtons class="footer" [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50, 100]">
+          </mat-paginator>
+        </div>
+    </div>
+  </div>
+
+
+
+<ng-template #viewNotificationModel let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title" id="editProfileLabel">View Notification</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+
+  <div class="modal-body">
+      <table class="table table-hover">
+          <tbody>
+              <tr>
+                  <div class="row">
+                      <div class="col-sm-5 col-md-5">
+                          <label>Title</label>
+                      </div>
+                      <div class="col-sm-7 col-md-7">
+                          <label>{{notification.title}}</label>
+                      </div>
+                  </div>
+              </tr>
+              <tr>
+                <div class="row">
+                    <div class="col-sm-5 col-md-5">
+                        <label for="inputsm">Is Active</label>
+                    </div>
+                    <div class="col-sm-5 col-md-5">
+                        <label>{{notification.isActive}}</label>
+                    </div>
+                </div>
+            </tr>
+              <tr>
+                  <div class="row">
+                      <div class="col-sm-5 col-md-5">
+                          <label>Description</label>
+                      </div>
+                      <div class="col-sm-7 col-md-7">
+                          <label>{{notification.description}}</label>
+                      </div>
+                  </div>
+              </tr>
+              <tr>
+                  <div class="row">
+                      <div class="col-sm-5 col-md-5">
+                          <label>Start Date</label>
+                      </div>
+                      <div class="col-sm-7 col-md-7">
+                          <label>{{notification.startDate}}</label>
+                      </div>
+                  </div>
+              </tr>
+              <tr>
+                  <div class="row">
+                      <div class="col-sm-5 col-md-5">
+                          <label>End Date</label>
+                      </div>
+                      <div class="col-sm-7 col-md-7">
+                          <label>{{notification.endDate}}</label>
+                      </div>
+                  </div>
+              </tr>
+              <tr>
+                  <div class="row">
+                      <div class="col-sm-5 col-md-5">
+                          <label>Class Name</label>
+                      </div>
+                      <div class="col-sm-7 col-md-7">
+                          <label>{{className}}</label>
+                      </div>
+                  </div>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <!-- <div class="modal-footer text-right">
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="modal.close('Close click')">Close</button>
+  </div> -->
+</ng-template>
+
+
+
+<ng-template #editNotificationModel let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Update Notification</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <small class="form-text text-muted"><b>Title</b><i class="fa fa-asterisk text-danger"></i></small>
+                <div class="input-group mb-3">
+                    <input [(ngModel)]="notification.title" name="title" class="form-control form-control-sm" placeholder="Title" required />
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <small class="form-text text-muted"><b>Select Class Name</b><i class="fa fa-asterisk text-danger"></i></small>
+                <div class="form-group">
+                    <select class="form-control form-control-sm" name="classId" [(ngModel)]="notification.classId" required (change)="onChangeFetchClass($event.target.value)">
+                        <option value="">Choose Class Name</option>
+                        <option *ngFor="let lClass of classes; let i = index" [value]="classes[i].classId">
+                            {{classes[i].className}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <small class="form-text text-muted"><b>Active Status</b><i class="fa fa-asterisk text-danger"></i></small>
+                <div class="form-group">
+                    <select class="form-control form-control-sm" [(ngModel)]="notification.isActive" name="isActive" required>
+                        <option value="">Choose Active Status</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <small class="form-text text-muted"><b>Description</b><i class="fa fa-asterisk text-danger"></i></small>
+                <div class="input-group">
+                    <textarea [(ngModel)]="notification.description" name="description" class="form-control form-control-sm" placeholder="Description" autocomplete="" required> </textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <small class="form-text text-muted"><b>Enter Start Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                <div class="input-group">
+                    <input [(ngModel)]="notification.startDate" name="startDate" class="form-control form-control-sm" [matDatepicker]="stpicker" placeholder="Start Date" autocomplete="" required readonly />
+                    <mat-datepicker-toggle matSuffix [for]="stpicker"></mat-datepicker-toggle>
+                    <mat-datepicker #stpicker></mat-datepicker>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <small class="form-text text-muted"><b>Enter End Date</b><i class="fa fa-asterisk text-danger"></i></small>
+                <div class="input-group">
+                    <input [(ngModel)]="notification.endDate" name="endDate" class="form-control form-control-sm" [matDatepicker]="edpicker" placeholder="End Date" autocomplete="" required readonly />
+                    <mat-datepicker-toggle matSuffix [for]="edpicker"></mat-datepicker-toggle>
+                    <mat-datepicker #edpicker></mat-datepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer text-right">
+        <button class="btn btn-outline-success btn-sm" ngbAutofocus (click)="submit(notification)">Update</button>
+        <!-- <button type="button" ngbAutofocus class="btn btn-outline-primary btn-sm" (click)="modal.close('Close click')">Close</button> -->
+    </div>
+</ng-template>
+
+
+
+<ng-template #deleteNotificationModel let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title" id="editProfileLabel">Delete Notification</h5>
+      <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+
+  <div class="modal-body">
+      <div class="row">  
+          <div class="col-sm-6 col-md-6">
+                <label for="inputsm">Title</label>
+            </div>
+            <div class="col-sm-5 col-md-5">
+                <label for="inputlg">{{notification.title}}</label>
+            </div>
+        </div> 
+        
+  </div>
+  <div class="modal-footer text-right">
+        <button class="btn btn-outline-danger btn-sm" ngbAutofocus (click)="confirmDelete(notification)">Delete</button>
+        <!-- <button type="button" ngbAutofocus class="btn btn-outline-primary btn-sm" (click)="modal.close('Close click')">Cancel</button> -->
+  </div>
+</ng-template>

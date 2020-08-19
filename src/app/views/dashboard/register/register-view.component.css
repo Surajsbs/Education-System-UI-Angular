@@ -1,0 +1,89 @@
+/* Structure */
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Filter */
+  .form {
+    min-height: 56px;
+    max-height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px 0;
+    font-size: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+  }
+  
+  
+  /* Mat table */
+  .no-results {
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  .mat-cell:nth-child(1),
+  .mat-header-cell:nth-child(1){
+    flex: .6 .6 8%;
+  }
+  
+  .mat-cell:nth-child(2),
+  .mat-header-cell:nth-child(2){
+    flex: .6 .6 8%;
+  }
+
+  .mat-cell:nth-child(3),
+  .mat-header-cell:nth-child(3){
+    flex: .5 .1 8%;
+  }
+  
+  .mat-cell:nth-child(4),
+  .mat-header-cell:nth-child(4){
+    flex: 1 1 20%;
+  }
+
+  .mat-cell:nth-child(5),
+  .mat-header-cell:nth-child(5){
+    flex: .5 .5 8%;
+  }
+
+  .mat-cell:nth-child(6),
+  .mat-header-cell:nth-child(6){
+    flex: .2 .2 4%;
+  }
+
+  .mat-cell:nth-child(7),
+  .mat-header-cell:nth-child(7){
+    flex: .2 .2 4%;
+  }
+
+  .mat-cell:nth-child(8),
+  .mat-header-cell:nth-child(8){
+    flex: .2 .2 4%;
+  }
+
+
+  .footer {
+    position: static;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+  }
+
+
+  .example-radio-group {
+    display: inline-flexbox;
+  }
+  
+  .example-radio-button {
+    margin: 20px;
+  }
+  
+  .example-selected-value {
+    margin: 15px 0;
+  }

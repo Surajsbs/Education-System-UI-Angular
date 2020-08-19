@@ -1,0 +1,308 @@
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header" (click)="widget.isUserCollapse = !widget.isUserCollapse"><i class="icon-user"></i>User View</div>
+            <div class="card-body" [collapse]="widget.isUserCollapse">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix text-dark">
+                                    <i class="fa fa-user bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.activeUsers}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Active Users</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix text-dark">
+                                    <i class="fa fa-user bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.inActiveUsers}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Inactive Users</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix text-dark">
+                                    <i class="fa fa-user bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.registredUsers}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Registred Users</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix text-dark">
+                                    <i class="fa fa-user bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.suspendedUsers}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Suspended Users</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" (click)="widget.isNoteCollapse = !widget.isNoteCollapse"><i class="icon-drop"></i>Note View</div>
+            <div class="card-body" [collapse]="widget.isNoteCollapse">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-drop bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.activeNotes}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Active Notes</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-drop bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.inActiveNotes}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Inactive Notes</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-drop bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.createdNotes}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Created Note</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-drop bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.suspendedNotes}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Suspended Note</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" (click)="widget.isAssignmentCollapse = !widget.isAssignmentCollapse"><i class="icon-cursor"></i>Assignment View</div>
+            <div class="card-body" [collapse]="widget.isAssignmentCollapse">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.activeAssignments}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Active Assignment</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.inActiveAssignments}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Inactive Assignment</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.createdAssignments}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Created Assignment</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.suspendedAssignments}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Suspended Assignment</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="card">
+            <div class="card-header" (click)="widget.isASCollapse = !widget.isASCollapse"><i class="icon-cursor"></i>Assignment Sumbission View</div>
+            <div class="card-body" [collapse]="widget.isASCollapse">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 text-info mb-0 mt-2">{{widget.activeASs}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Active Sumbission</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 text-info mb-0 mt-2">{{widget.inActiveASs}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Inactive Sumbission</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 text-info mb-0 mt-2">{{widget.createdASs}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Created Sumbission</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-cursor bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 text-info mb-0 mt-2">{{widget.suspendedASs}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Suspended Sumbission</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="card">
+            <div class="card-header" (click)="widget.isNotificationCollapse = !widget.isNotificationCollapse"><i class="icon-bell"></i>Notification View</div>
+            <div class="card-body" [collapse]="widget.isNotificationCollapse">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-bell bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.activeNotifications}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Active Notification</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block " href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-bell bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.inActiveNotifications}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Inactive Notification</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block " href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-bell bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.createdNotifications}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Created Notification</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block " href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-4 col-lg-4">
+                            <div class="card">
+                                <div class="card-body p-3 clearfix">
+                                    <i class="icon-bell bg-dark p-3 mr-3 float-left"></i>
+                                    <div class="h5 mb-0 mt-2">{{widget.suspendedNotifications}}</div>
+                                    <div class="text-uppercase font-weight-bold font-xs">Suspended Notification</div>
+                                </div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block " href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
