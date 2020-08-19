@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://syologicservices.com/online_classes_apis',
+  apiUrl: 'http://syologicservices.com/online_classes_apis/api',
   login: '/authenticate',
   user: {
       create: '/user/create',
