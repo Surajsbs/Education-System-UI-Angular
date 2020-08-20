@@ -43,35 +43,32 @@ export const environment = {
       delete: '/notification/delete'
   },
   widget: {
-      user: {
-          getActiveUsers: '/user/getActiveUsers',
-          getInactiveUsers: '/user/getInactiveUsers',
-          getRegistredUsers: '/user/getRegistredUsers',
-          // getSuspendedUsers: '/user/getDeletedUsers'
-      },
-      note: {
-          getActiveNotes: '/note/getActiveNotes',
-          getInActiveNotes: '/note/getInActiveNotes',
-          getCreatedNotes: '/note/getCreatedNotes',
-          // getSuspendedNotes: '/note/getSuspendedNotes'
-      },
-      assignment: {
-          getActiveAssignments: '/assignment/getActiveAssignments',
-          getInActiveAssignments: '/assignment/getInActiveAssignments',
-          getCreatedAssignments: '/assignment/getCreatedAssignments',
-          // getSuspendedAssignments: '/assignment/getSuspendedAssignments'
-      },
-      as: {
-          getActiveASs: '/assignment/getActiveASs',
-          getInActiveASs: '/assignment/getInActiveASs',
-          getCreatedASs: '/assignment/getCreatedASs',
-          // getSuspendedASs: '/assignment/getSuspendedASs'
-      },
-      notification: {
-          getActiveNotifications: '/notification/getActiveNotifications',
-          getInActiveNotifications: '/notification/getInActiveNotifications',
-          getCreatedNotifications: '/notification/getCreatedNotifications',
-          // getSuspendedNotifications: '/notification/getSuspendedNotifications'
-      }
-  }
+    user: {
+        getActive: '/user/getActive',
+        getInactive: '/user/getInactive',
+        getRegistered: '/user/getRegistered'
+    },
+    note: {
+        getActive: '/note/getActive',
+        getInActive: '/note/getInActive',
+        getCreated: '/note/getCreated'
+    },
+    assignment: {
+        getActive: '/assignment/getActive',
+        getInActive: '/assignment/getInActive',
+        getCreated: '/assignment/getCreated'
+    },
+    as: {
+        getActive: '/assignment/getActive',
+        getInActive: '/assignment/getInActive',
+        getCreated: '/assignment/getCreated'
+    },
+    notification: {
+        getActive: '/notification/getActive',
+        getInActive: '/notification/getInActive',
+        getCreated: '/notification/getCreated'
+    },
+    common: {
+        profile: '/common/profile'
+    }
 };

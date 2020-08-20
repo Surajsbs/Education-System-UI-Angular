@@ -24,18 +24,18 @@ export class DashboardWidgetService {
         // this.http.get<any>(environment.apiUrl + environment.widget.as.getCreatedASs, { observe: 'body' }),
 
         return forkJoin([
-            this.http.get<any>(environment.apiUrl + environment.widget.user.getActiveUsers, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.user.getInactiveUsers, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.user.getRegistredUsers, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.note.getActiveNotes, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.note.getInActiveNotes, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.note.getCreatedNotes, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.assignment.getActiveAssignments, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.assignment.getInActiveAssignments, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.assignment.getCreatedAssignments, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.notification.getActiveNotifications, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.notification.getInActiveNotifications, { observe: 'body' }),
-            this.http.get<any>(environment.apiUrl + environment.widget.notification.getCreatedNotifications, { observe: 'body' })
+            this.http.get<any>(environment.apiUrl + environment.widget.user.getActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.user.getInactive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.user.getRegistered, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.note.getActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.note.getInActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.note.getCreated, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.assignment.getActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.assignment.getInActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.assignment.getCreated, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.notification.getActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.notification.getInActive, { observe: 'body' }),
+            this.http.get<any>(environment.apiUrl + environment.widget.notification.getCreated, { observe: 'body' })
         ]);
     }
 
