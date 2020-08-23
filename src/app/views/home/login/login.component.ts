@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
         }
         this.loading = true
         this.credential = new CredentialModel();
-        this.credential.username = this.f.username.value;
+        this.credential.mobileNumber = this.f.username.value;
         this.credential.password = this.f.password.value;
 
         
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
         // this.router.navigate(['/dashboard']);
         
         this.authenticationService.login(this.credential)
-        .subscribe(data => { this.validateuser(data) }, error => { this.anyError(error) });
+        .subscribe(data => { this.validateuser(data) });
         this.loading = false;
         this.loginSubmitted = false;
     }

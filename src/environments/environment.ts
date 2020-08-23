@@ -2,6 +2,7 @@
 export const environment = {
     production: false,
     apiUrl: 'http://localhost:3000/api',
+    // apiUrl: 'http://syologicservices.com/oca/api',
     login: '/authenticate',
     user: {
         create: '/user/create',

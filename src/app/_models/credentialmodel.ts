@@ -1,4 +1,4 @@
 export class CredentialModel {
-    username: string;
+    mobileNumber: string;
     password: string;
 }
