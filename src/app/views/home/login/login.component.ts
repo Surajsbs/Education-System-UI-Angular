@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
                 this.error = data.message;
                 this.loading = false;
             }
-        } else if(data.status === 404){
+        } else if(data.status === 400){
             this.error = data.message;
             this.loading = false;
         }

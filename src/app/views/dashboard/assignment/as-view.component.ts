@@ -64,16 +64,16 @@ import { UserResponseModel } from '../../../_models/response/user.response.model
 
 export class ASViewComponent implements OnInit {
   displayedColumns = ['AssignmentTitle', 'AssignmentDescription', 'ClassName', 'SubmissionDate', 'UserDetail'];
-  private asViewDatabase: ASService | null;
-  private dataSource: ASViewDataSource | null;
-  private response: any;
-  private userClass: LoadClassesResponse;
-  private className: any;
-  private classFee; any;
-  private modalRef: NgbModalRef;
-  private asViewModel: ASViewResponseModel;
-  private classes: LoadClassesResponse[];
-  private users: UserResponseModel[];
+  asViewDatabase: ASService | null;
+  dataSource: ASViewDataSource | null;
+  response: any;
+  userClass: LoadClassesResponse;
+  className: any;
+  classFee; any;
+  modalRef: NgbModalRef;
+  asViewModel: ASViewResponseModel;
+  classes: LoadClassesResponse[];
+  users: UserResponseModel[];
 
   constructor(
       public httpClient: HttpClient,

@@ -23,18 +23,18 @@ export function getAlertConfig(): AlertConfig {
   templateUrl: './as-create.component.html'
 })
 export class ASCreateComponent implements OnInit {
-    private createASForm: FormGroup;
-    private loading = false;
-    private submitted = false;
-    private asModel: ASCreateModel;
-    private classes: any[];
-    private response: any;
-    private activeStatus: string[];
-    private users: UserResponseModel[];
-    private modalRef: NgbModalRef;
-    private selectedUsers = new Array();
-    private allComplete: boolean = false;
-    private assign: AssignmentResponseModel[];
+    createASForm: FormGroup;
+    loading = false;
+    submitted = false;
+    asModel: ASCreateModel;
+    classes: any[];
+    response: any;
+    activeStatus: string[];
+    users: UserResponseModel[];
+    modalRef: NgbModalRef;
+    selectedUsers = new Array();
+    allComplete: boolean = false;
+    assign: AssignmentResponseModel[];
     
 
     constructor(

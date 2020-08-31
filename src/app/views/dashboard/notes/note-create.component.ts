@@ -13,14 +13,14 @@ import { DateUtil } from '../../../_util/date.util';
   templateUrl: './note-create.component.html'
 })
 export class NoteCreateComponent implements OnInit {
-  private classes: any[];
-  private noteTpes:string[] = [];
-  private createNoteForm: FormGroup;
-  private loading = false;
-  private submitted = false;
-  private noteModel: NoteCreateModel;
-  private response: any;
-  private classTypes: string[];
+  classes: any[];
+  noteTpes:string[] = [];
+  createNoteForm: FormGroup;
+  loading = false;
+  submitted = false;
+  noteModel: NoteCreateModel;
+  response: any;
+  classTypes: string[];
 
 
   constructor(

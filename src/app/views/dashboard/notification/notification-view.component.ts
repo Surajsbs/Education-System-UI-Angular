@@ -23,18 +23,18 @@ import { NotificationResponseModel } from '../../../_models/response/notificatio
 
 export class NotificationViewComponent implements OnInit {
   displayedColumns = ['Title', 'Class Name', 'End Date', 'Start Date', 'View', 'Edit', 'Delete'];
-  private notificationDatabase: NotificationService | null;
-  private dataSource: NotificationDataSource | null;
-  private response: any;
-  private userClass: LoadClassesResponse;
-  private className: any;
-  private classFee; any;
-  private modalRef: NgbModalRef;
-  private notification: NotificationResponseModel;
-  private classes: LoadClassesResponse[];
-  private classDurations: string[];
-  private feesStatus: string[];
-  private types: string[];
+  notificationDatabase: NotificationService | null;
+  dataSource: NotificationDataSource | null;
+  response: any;
+  userClass: LoadClassesResponse;
+  className: any;
+  classFee; any;
+  modalRef: NgbModalRef;
+  notification: NotificationResponseModel;
+  classes: LoadClassesResponse[];
+  classDurations: string[];
+  feesStatus: string[];
+  types: string[];
 
   constructor(
       private httpClient: HttpClient,

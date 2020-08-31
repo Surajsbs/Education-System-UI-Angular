@@ -20,19 +20,19 @@ export class NotificationCreateComponent {
   
 
 
-        private classes: LoadClassesResponse[] = [];
-        private feesStatus:string[] = [];
-        private classDurations:string[] = [];
-        private createNotificationForm: FormGroup;
-        private loading = false;
-        private submitted = false;
-        private notificationModel: NotificationCreateModel;
-        private response: any;
-        private activeStatus: string[];
-        private users: UserResponseModel[];
-        private modalRef: NgbModalRef;
-        private allComplete: boolean = false;
-        private selectedUsers = new Array();
+        classes: LoadClassesResponse[] = [];
+        feesStatus:string[] = [];
+        classDurations:string[] = [];
+        createNotificationForm: FormGroup;
+        loading = false;
+        submitted = false;
+        notificationModel: NotificationCreateModel;
+        response: any;
+        activeStatus: string[];
+        users: UserResponseModel[];
+        modalRef: NgbModalRef;
+        allComplete: boolean = false;
+        selectedUsers = new Array();
 
   constructor(
         private formBuilder: FormBuilder,

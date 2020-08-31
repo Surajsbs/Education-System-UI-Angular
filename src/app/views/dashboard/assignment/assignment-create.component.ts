@@ -13,13 +13,13 @@ import { LoadClassesResponse } from '../../../_models/response/laod.class.respon
   templateUrl: './assignment-create.component.html'
 })
 export class AssignmentCreateComponent implements OnInit{
-  private assignmentCreateForm: FormGroup;
-  private loading = false;
-  private submitted = false;
-  private assCreateModel: AssignmentCreateModel;
-  private classes: LoadClassesResponse[] = [];
-  private response: any;
-  private activeStatus: string[];
+  assignmentCreateForm: FormGroup;
+  loading = false;
+  submitted = false;
+  assCreateModel: AssignmentCreateModel;
+  classes: LoadClassesResponse[] = [];
+  response: any;
+  activeStatus: string[];
 
 
   constructor(

@@ -10,7 +10,7 @@ import { Notification } from '../../_util/notification.service';
 
 export class DashboardComponent implements OnInit  {
       
-    private widget: DashboardWidgets;
+    widget: DashboardWidgets;
 
     constructor(
     private widgetService: DashboardWidgetService,
@@ -29,40 +29,40 @@ export class DashboardComponent implements OnInit  {
 
 export class DashboardWidgets {
 
-    private isUserCollapse: boolean = false;
-    private isNoteCollapse: boolean = true;
-    private isAssignmentCollapse: boolean = true;
-    private isASCollapse: boolean = true;
-    private isNotificationCollapse: boolean = true;
+    isUserCollapse: boolean = false;
+    isNoteCollapse: boolean = true;
+    isAssignmentCollapse: boolean = true;
+    isASCollapse: boolean = true;
+    isNotificationCollapse: boolean = true;
 
     // Users
-    private activeUsers: number;
-    private inActiveUsers: number;
-    private registredUsers: number;
+    activeUsers: number;
+    inActiveUsers: number;
+    registredUsers: number;
 //   private suspendedUsers: number;
 
     // Notes
-    private activeNotes: number;
-    private inActiveNotes: number;
-    private createdNotes: number;
+    activeNotes: number;
+    inActiveNotes: number;
+    createdNotes: number;
 //   private suspendedNotes: number;
 
     // Assignments
-    private activeAssignments: number;
-    private inActiveAssignments: number;
-    private createdAssignments: number;
+    activeAssignments: number;
+    inActiveAssignments: number;
+    createdAssignments: number;
 //   private suspendedAssignments: number;
 
     // Assignment Submission
-    private activeASs: number;
-    private inActiveASs: number;
-    private createdASs: number;
+    activeASs: number;
+    inActiveASs: number;
+    createdASs: number;
 //   private suspendedASs: number;
 
     // Notification
-    private activeNotifications: number;
-    private inActiveNotifications: number;
-    private createdNotifications: number;
+    activeNotifications: number;
+    inActiveNotifications: number;
+    createdNotifications: number;
 //   private suspendedNotifications: number;
 
     constructor(

@@ -25,17 +25,17 @@ export class RegisterViewComponent implements OnInit {
   displayedColumns = ['FirstName', 'LastName', 'MobileNumber', 'Email', 'JoiningDate', 'View', 'Edit', 'Delete'];
   exampleDatabase: RegistrationService | null;
   dataSource: ExampleDataSource | null;
-  private response: any;
-  private userClass: LoadClassesResponse;
-  private className: any;
-  private classFee; any;
-  private modalRef: NgbModalRef;
-  private user: RegisterUserResponseModel;
-  private classes: LoadClassesResponse[];
-  private classDurations: string[];
-  private feesStatus: string[];
-  private isLoading = true;
-  private genders: string[];
+  response: any;
+  userClass: LoadClassesResponse;
+  className: any;
+  classFee; any;
+  modalRef: NgbModalRef;
+  user: RegisterUserResponseModel;
+  classes: LoadClassesResponse[];
+  classDurations: string[];
+  feesStatus: string[];
+  isLoading = true;
+  genders: string[];
 
   constructor(
       public httpClient: HttpClient,

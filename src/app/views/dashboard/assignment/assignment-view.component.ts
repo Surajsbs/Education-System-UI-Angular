@@ -26,22 +26,22 @@ import { LoadClassesResponse } from '../../../_models/response/laod.class.respon
 
 export class AssignmentViewComponent implements OnInit {
   displayedColumns = ['Title', 'StartDate', 'SubmissionDate', 'View', 'Edit', 'Delete'];
-  private assignDatabase: AssignmentService | null;
-  private dataSource: AssignmentDataSource | null;
-  private response: any;
-  private userClass: AssignmentResponseModel;
-  private className: any;
-  private classFee; any;
-  private modalRef: NgbModalRef;
-  private assign: AssignmentResponseModel;
-  private classes: LoadClassesResponse[];
-  private classDurations: string[];
-  private feesStatus: string[];
-  private types: string[];
+  assignDatabase: AssignmentService | null;
+  dataSource: AssignmentDataSource | null;
+  response: any;
+  userClass: AssignmentResponseModel;
+  className: any;
+  classFee; any;
+  modalRef: NgbModalRef;
+  assign: AssignmentResponseModel;
+  classes: LoadClassesResponse[];
+  classDurations: string[];
+  feesStatus: string[];
+  types: string[];
 
   constructor(
-      public httpClient: HttpClient,
-      public dialog: MatDialog,
+    private httpClient: HttpClient,
+      private dialog: MatDialog,
       private notification: Notification,
       private assignService: AssignmentService,
       private commonService: CommonService,
